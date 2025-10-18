@@ -17,6 +17,11 @@
     .navbar .logo span {
         display: none;
     }
+    
+    /* Sesuaikan padding pada hero section untuk mencegah gambar terpotong navbar */
+    #hero {
+        padding-top: 100px; /* Menambah padding atas untuk compensasi navbar */
+    }
 
     /* =================================
    CSS UNTUK NAVIGASI MOBILE (BARU)
@@ -26,11 +31,20 @@
 .burger-menu {
     display: block;
     z-index: 1002; /* Pastikan ikon di atas segalanya */
+    position: relative; /* Memastikan posisi z-index bekerja dengan benar */
+    transform: scale(0.9); /* Sedikit lebih kecil */
 }
 
 /* Sembunyikan tombol 'Hubungi Saya' di navbar (karena sudah ada di dalam menu) */
 .navbar .nav-links li a.btn {
     display: none;
+}
+
+/* Tambahan: Pastikan navbar memiliki tinggi yang konsisten namun lebih kecil di mobile */
+.navbar {
+    height: auto;
+    min-height: 60px; /* Tinggi minimum navbar yang dikurangi */
+    padding: 10px 0; /* Kurangi padding vertikal */
 }
 
 /* Ini adalah style untuk menu mobile */
@@ -92,6 +106,10 @@
 }
 
     /* === Hero Section === */
+    #hero {
+        padding-top: 100px; /* Kurangi padding karena navbar sekarang lebih kecil */
+    }
+    
     #hero .container {
         flex-direction: column;
         text-align: center;
@@ -104,6 +122,7 @@
         flex-basis: 100%;
         order: 1;
         margin-bottom: 30px;
+        margin-top: 20px; /* Tambahkan margin atas */
     }
     /* GANTI ATURAN HERO LAMA DI 768px DENGAN INI */
 .hero-image img {
@@ -160,7 +179,13 @@
 
     /* Perkecil logo dan tombol */
     .navbar .logo {
-        font-size: 1.25rem;
+        font-size: 1.1rem; /* Lebih kecil */
+    }
+    
+    /* Perkecil ukuran logo pada navbar */
+    .navbar-logo {
+        width: 40px !important; /* Lebih kecil dari default */
+        height: 40px !important;
     }
     .btn {
         padding: 10px 20px;
