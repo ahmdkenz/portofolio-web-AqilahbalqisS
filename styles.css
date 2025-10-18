@@ -1,0 +1,533 @@
+/* === Variabel Desain (Tema) === */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            --color-bg: #FDFBF5;         /* Putih Gading / Ivory */
+            --color-text: #4A4A4A;         /* Abu-abu Tua (untuk teks) */
+            --color-primary: #86997A;     /* Sage Green (lebih tua) */
+            --color-secondary: #B5C9A9;   /* Sage Green (lebih muda) */
+            --color-accent: #D4AF37;      /* Emas (untuk tombol) */
+            --color-white: #FFFFFF;
+        }
+
+        /* === Reset Dasar === */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+        }
+
+        /* === Utility / Helper === */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem; /* 56px */
+        }
+
+        h2 {
+            font-size: 2.5rem; /* 40px */
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* === Tombol Utama === */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c09e30; /* Emas sedikit lebih gelap */
+        }
+
+        /* === Header / Navigasi === */
+        .navbar {
+            background: var(--color-white);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 30px;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* === 1. Hero Section === */
+        #hero {
+            background-color: var(--color-white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px; /* Offset untuk fixed navbar */
+        }
+
+        #hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex-basis: 55%;
+        }
+        
+        .hero-text .sub-judul {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-text);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            flex-basis: 40%;
+        }
+
+        .hero-image img {
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            /* Ilustrasi garis botani sebagai bingkai */
+            border: 10px solid var(--color-secondary);
+        }
+
+        /* === 2. Tentang Saya === */
+        #about .container {
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .about-highlights {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+        
+        .highlight-item {
+            flex-basis: 30%;
+        }
+        
+        .highlight-item h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+        }
+
+        /* === 3. Filosofi Mengajar === */
+        #philosophy {
+            background-color: var(--color-secondary);
+        }
+
+        #philosophy blockquote {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            line-height: 1.5;
+            color: var(--color-text);
+            border-left: 5px solid var(--color-accent);
+            padding-left: 30px;
+            font-style: italic;
+        }
+
+        #philosophy cite {
+            display: block;
+            margin-top: 20px;
+            font-family: var(--font-body);
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* === 4. Galeri Portofolio === */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .portfolio-item-content {
+            padding: 25px;
+        }
+        
+        .portfolio-item-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* === 5. Kualifikasi (Timeline) === */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Garis vertikal di tengah */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--color-secondary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 50%;
+        }
+        
+        /* Item di sebelah kiri */
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+        
+        /* Item di sebelah kanan */
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        /* Bulatan di garis */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            border: 3px solid var(--color-bg);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -8px; /* - (setengah lebar bulatan) */
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -8px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+        }
+        
+        .timeline-content .date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* === 6. Testimoni === */
+        #testimonials {
+            background-color: var(--color-white);
+        }
+        
+        .testimonials-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .testimonial-card {
+            flex-basis: 45%;
+            padding: 30px;
+            background: var(--color-bg);
+            border-radius: 8px;
+            border-left: 5px solid var(--color-secondary);
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card cite {
+            font-weight: 700;
+            font-style: normal;
+            color: var(--color-primary);
+        }
+        
+        /* === 7. Kontak === */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-family: var(--font-body);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .contact-form .btn {
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* === Footer === */
+        footer {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        /* === Penyesuaian Responsif (untuk HP) === */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+
+            /* Navigasi (bisa dibuat menu burger, tapi untuk simpel kita stack) */
+            .navbar .nav-links {
+                display: none; /* Sembunyikan untuk simpel */
+            }
+
+            /* Hero */
+            #hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                flex-basis: 100%;
+                order: 2; /* Teks di bawah gambar */
+            }
+            .hero-image {
+                flex-basis: 100%;
+                order: 1;
+                margin-bottom: 30px;
+            }
+            
+            /* About */
+            .about-highlights {
+                flex-direction: column;
+            }
+
+            /* Portfolio */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Kualifikasi / Timeline */
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding: 0 0 0 40px; text-align: left !important; }
+            .timeline-item:nth-child(even) { left: 0; }
+            .timeline-item::after { left: 12px; }
+            .timeline-item:nth-child(odd)::after { left: 12px; }
+
+
+            /* Testimoni */
+            .testimonials-container {
+                flex-direction: column;
+            }
+        }
+        /* =================================
+   CSS UNTUK SECTION KEMAMPUAN (BARU)
+   ================================= */
+
+/* Bagian #skills ini akan memiliki latar belakang putih
+   agar berbeda dari bagian #about dan #qualifications */
+#skills {
+    background-color: var(--color-white);
+}
+
+.skills-grid {
+    display: grid;
+    /* Tampilan 2 kolom di desktop */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 50px; /* Jarak baris dan kolom */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-item h3 {
+    font-size: 1.1rem;
+    font-family: var(--font-body); /* Pakai font body agar tidak terlalu tebal */
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+/* Latar belakang/track dari skill bar */
+.skill-bar-bg {
+    width: 100%;
+    height: 15px;
+    background-color: #e0e0e0; /* Warna abu-abu netral */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Isian/level dari skill bar */
+.skill-bar-level {
+    height: 100%;
+    background-color: var(--color-primary); /* Warna hijau tua (sesuai tema) */
+    border-radius: 10px;
+}
+
+/* Lebar persentase untuk skill bar */
+.w-80 {
+    width: 80%; /* Untuk level 4/5 */
+}
+
+.w-60 {
+    width: 60%; /* Untuk level 3/5 */
+}
+
+/* =================================
+   PENYESUAIAN RESPONSIVE (BARU)
+   ================================= */
+
+/* Di dalam media query Anda yang sudah ada */
+@media (max-width: 768px) {
+    
+    /* Aturan lama untuk .portfolio-grid bisa dihapus/diganti ini */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+        gap: 30px;
+    }
+}
