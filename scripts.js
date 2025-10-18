@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // ===================================
     const burger = document.querySelector('.burger-menu');
     const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    const body = document.body;
 
     // Tambahkan event listener saat burger di-klik
     burger.addEventListener('click', () => {
@@ -41,6 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Toggle (tambah/hapus) kelas 'burger-active' pada icon burger
         burger.classList.toggle('burger-active');
+        
+        // Mencegah scrolling di background saat menu terbuka
+        if (nav.classList.contains('nav-active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
+    });
+    
+    // Tutup menu saat link di klik
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('burger-active');
+            body.style.overflow = '';
+        });
     });
 
 });
