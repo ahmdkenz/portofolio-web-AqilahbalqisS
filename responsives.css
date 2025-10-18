@@ -101,7 +101,11 @@
         order: 1;
         margin-bottom: 30px;
     }
-    
+    /* GANTI ATURAN HERO LAMA DI 768px DENGAN INI */
+.hero-image img {
+    width: 250px; /* Sedikit lebih kecil dari desktop */
+    height: 250px;
+}
     /* === Tentang Saya === */
     .about-highlights {
         flex-direction: column;

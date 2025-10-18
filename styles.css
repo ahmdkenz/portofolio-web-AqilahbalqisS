@@ -61,10 +61,11 @@
         }
 
         img {
-            max-width: 100%;
-            height: auto;
-        }
-        
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%; /* Biarkan ini jika ingin gambar tetap bulat */
+    /* Hapus border-radius: 50%; jika ingin gambar menjadi kotak/persegi */
+}        
         /* === Tombol Utama === */
         .btn {
             display: inline-block;
@@ -157,12 +158,15 @@
             flex-basis: 40%;
         }
 
-        .hero-image img {
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            /* Ilustrasi garis botani sebagai bingkai */
-            border: 10px solid var(--color-secondary);
-        }
+    .hero-image img {
+    width: 300px; /* [UBAH] Ukuran diperbesar */
+    height: 300px; /* [UBAH] Ukuran diperbesar */
+    border-radius: 50%; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    /* border: ... (sudah dihapus) */
+    object-fit: cover;
+}
+
 
         /* === 2. Tentang Saya === */
         #about .container {
@@ -413,10 +417,40 @@
             background: var(--color-primary);
             color: var(--color-bg);
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0; /* Padding sedikit lebih besar */
             margin-top: 60px;
         }
         
+        /* Wrapper Ikon Sosial Media (BARU) */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* Jarak antar ikon */
+            margin-bottom: 25px; /* Jarak ke teks copyright */
+        }
+
+        /* Styling Ikon (BARU) */
+        .social-links a {
+            color: var(--color-bg); /* Mengambil warna background footer (putih gading) */
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px); /* Efek 'float' saat hover */
+            opacity: 0.8; /* Sedikit pudar */
+        }
+
+        /* Ukuran Ikon SVG (BARU) */
+        .social-links svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Pastikan teks copyright tidak punya margin bawah */
+        footer p {
+            margin-bottom: 0;
+        }
+
         /* === Penyesuaian Responsif (untuk HP) === */
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
@@ -727,46 +761,4 @@
     align-items: center;
     justify-content: flex-start;
     gap: 20px; /* Jarak antar item menu */
-}
-/* =================================
-   PENYESUAIAN FOOTER (SOSIAL MEDIA)
-   ================================= */
-
-/* Ganti aturan footer yang ada dengan ini agar padding-nya pas */
-footer {
-    background: var(--color-primary);
-    color: var(--color-bg);
-    text-align: center;
-    padding: 40px 0; /* Padding sedikit lebih besar */
-    margin-top: 60px;
-}
-
-/* Wrapper Ikon Sosial Media (BARU) */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* Jarak antar ikon */
-    margin-bottom: 25px; /* Jarak ke teks copyright */
-}
-
-/* Styling Ikon (BARU) */
-.social-links a {
-    color: var(--color-bg); /* Mengambil warna background footer (putih gading) */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: translateY(-3px); /* Efek 'float' saat hover */
-    opacity: 0.8; /* Sedikit pudar */
-}
-
-/* Ukuran Ikon SVG (BARU) */
-.social-links svg {
-    width: 28px;
-    height: 28px;
-}
-
-/* Pastikan teks copyright tidak punya margin bawah */
-footer p {
-    margin-bottom: 0;
 }
