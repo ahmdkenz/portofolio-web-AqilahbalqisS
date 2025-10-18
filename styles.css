@@ -422,9 +422,15 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
 
-            /* Navigasi (bisa dibuat menu burger, tapi untuk simpel kita stack) */
+            /* Navigasi mobile dengan burger menu */
             .navbar .nav-links {
-                display: none; /* Sembunyikan untuk simpel */
+                display: none; /* Sembunyikan menu default */
+            }
+            
+            /* Tampilkan burger menu di mobile */
+            .burger-menu {
+                display: block;
+                cursor: pointer;
             }
 
             /* Hero */
@@ -633,4 +639,92 @@
 
 #skills.is-visible .w-60 {
     width: 60%;
+}
+/* =================================
+   CSS UNTUK BURGER MENU (DESKTOP)
+   ================================= */
+   
+.burger-menu {
+    display: none; /* Sembunyikan di desktop */
+    cursor: pointer;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary); /* Warna garis burger */
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* =================================
+   ANIMASI DAN EFEK TAMBAHAN BURGER MENU
+   ================================= */
+
+/* Efek transparan bokeh untuk latar belakang menu */
+.nav-links.nav-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparan dengan sedikit opacity */
+    backdrop-filter: blur(10px); /* Efek bokeh */
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Saat menu aktif, tampilkan dengan animasi */
+.nav-links.nav-active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animasi burger menu menjadi X ketika aktif */
+.burger-active .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger-active .line2 {
+    opacity: 0;
+}
+
+.burger-active .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Tampilan menu mobile saat aktif */
+.nav-links.nav-active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 80px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparan dengan sedikit opacity */
+    backdrop-filter: blur(10px); /* Efek bokeh */
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Pastikan daftar menu terlihat saat burger menu aktif */
+.nav-links {
+    display: none; /* Sembunyikan secara default */
+}
+
+.nav-links.nav-active {
+    display: flex; /* Tampilkan daftar menu saat aktif */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px; /* Jarak antar item menu */
 }
