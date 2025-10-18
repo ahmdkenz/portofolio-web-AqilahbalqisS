@@ -531,3 +531,50 @@
         gap: 30px;
     }
 }
+/* =================================
+   CSS UNTUK SECTION PENDIDIKAN (BARU)
+   ================================= */
+   
+/* Section #education akan menggunakan background default (Ivory) */
+
+.education-grid {
+    display: grid;
+    /* Tampilan 2 kolom di desktop */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-item {
+    background: var(--color-white);
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    /* Desain konsisten dengan 'timeline-content' */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.education-item .date {
+    /* Desain konsisten dengan 'timeline-content .date' */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+    display: block; /* Agar tanggal berada di atas judul */
+}
+
+.education-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.education-item p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}

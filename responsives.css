@@ -1,0 +1,103 @@
+/* ======================================================
+   FILE: responsive.css
+   Berisi semua style untuk tablet dan smartphone.
+   ====================================================== */
+
+/* --- Breakpoint 1: Tablet & HP (768px ke bawah) --- */
+@media (max-width: 768px) {
+    
+    /* === Tipografi Dasar === */
+    h1 { 
+        font-size: 2.5rem; /* 40px */
+    }
+    h2 { 
+        font-size: 2rem; /* 32px */
+    }
+
+    /* === Navigasi === */
+    .navbar .nav-links {
+        display: none; /* Sembunyikan menu di HP (bisa diganti menu burger nanti) */
+    }
+
+    /* === Hero Section === */
+    #hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        flex-basis: 100%;
+        order: 2; /* Teks di bawah gambar */
+    }
+    .hero-image {
+        flex-basis: 100%;
+        order: 1;
+        margin-bottom: 30px;
+    }
+    
+    /* === Tentang Saya === */
+    .about-highlights {
+        flex-direction: column;
+    }
+
+    /* === Pendidikan === */
+    .education-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+    }
+
+    /* === Kemampuan === */
+    .skills-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
+        gap: 30px;
+    }
+
+    /* === Kualifikasi / Timeline === */
+    .timeline::before { 
+        left: 20px; 
+    }
+    .timeline-item { 
+        width: 100%; 
+        padding: 0 0 0 40px; 
+        text-align: left !important; /* Paksa semua item jadi rata kiri */
+    }
+    .timeline-item:nth-child(even) { 
+        left: 0; /* Ratakan semua item ke kiri */
+    }
+    .timeline-item::after { 
+        left: 12px; /* Pindahkan bulatan ke kiri */
+    }
+    .timeline-item:nth-child(odd)::after { 
+        left: 12px; /* Pindahkan bulatan ke kiri */
+    }
+}
+
+
+/* --- Breakpoint 2: HP Kecil (480px ke bawah) --- */
+@media (max-width: 480px) {
+    
+    /* Perkecil font agar muat di layar sempit */
+    h1 {
+        font-size: 2.2rem; /* 35.2px */
+    }
+    h2 {
+        font-size: 1.8rem; /* 28.8px */
+    }
+
+    /* Perkecil logo dan tombol */
+    .navbar .logo {
+        font-size: 1.25rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Perkecil kutipan */
+    #philosophy blockquote {
+        font-size: 1.5rem;
+    }
+
+    /* Beri sedikit ruang lebih di section */
+    section {
+        padding: 60px 0;
+    }
+}
