@@ -335,38 +335,7 @@
         .timeline-content p {
             font-size: 0.95rem;
             margin-bottom: 0;
-        }
-
-        /* === 6. Testimoni === */
-        #testimonials {
-            background-color: var(--color-white);
-        }
-        
-        .testimonials-container {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-        }
-        
-        .testimonial-card {
-            flex-basis: 45%;
-            padding: 30px;
-            background: var(--color-bg);
-            border-radius: 8px;
-            border-left: 5px solid var(--color-secondary);
-        }
-        
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial-card cite {
-            font-weight: 700;
-            font-style: normal;
-            color: var(--color-primary);
-        }
-        
+        }       
         /* === 7. Kontak === */
         #contact {
             text-align: center;
