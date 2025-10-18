@@ -18,11 +18,14 @@
     height: 3px;
     background-color: var(--color-primary);
     margin: 6px 0;
-    transition: all 0.3s ease;
+    
+    /* [PERBARUI] Animasi burger lebih smooth dengan 'cubic-bezier' */
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Media query untuk mobile */
 @media (max-width: 768px) {
+    
     /* Tampilkan burger menu di mobile */
     .burger-menu {
         display: block;
@@ -30,54 +33,69 @@
     
     /* Sembunyikan nav links secara default */
     .navbar .nav-links {
-        display: none;
-        position: fixed;
-        right: 0;
-        top: 80px;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background-color: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        padding: 40px 0;
-        z-index: 1000;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        
-        /* Default state */
-        opacity: 0;
-        transform: translateY(-15px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    
-    /* Saat menu aktif */
-    .nav-links.nav-active {
-        display: flex !important;
+        /* [PERBARUI] Gunakan visibility untuk animasi yang lebih baik */
+        visibility: hidden; 
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         gap: 30px;
-        opacity: 1;
-        transform: translateY(0);
+
+        position: fixed;
+        right: 0;
+        
+        /* [PERBARUI] Buat menu jadi full-screen untuk efek overlay */
+        top: 0;
+        width: 100%;
+        height: 100vh; /* Tinggi penuh */
+        
+        /* [PERBARUI] Efek "Bokeh" yang lebih transparan dan blur */
+        background-color: rgba(255, 255, 255, 0.65); /* Lebih transparan */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        
+        /* [PERBARUI] Beri padding dari atas agar tidak tertutup navbar */
+        padding-top: 120px; 
+        padding-left: 0;
+        padding-right: 0;
+
+        z-index: 1000;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        
+        /* [PERBARUI] Animasi default: hanya fade-in/out */
+        opacity: 0;
+        transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+        /* Hapus transform, biarkan fade-in di tempat */
     }
     
-    /* Style untuk item di dalam nav */
+    /* Saat menu aktif */
+    .nav-links.nav-active {
+        visibility: visible;
+        opacity: 1;
+        /* Hapus transform, karena default-nya sudah 0 */
+    }
+    
+    /* Style untuk item di dalam nav (Default tersembunyi) */
     .navbar .nav-links li {
         margin-left: 0;
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.4s ease, transform 0.4s ease;
+        
+        /* [PERBARUI] Transisi lebih lambat dan smooth */
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     }
     
+    /* Saat menu aktif, tampilkan item */
     .nav-links.nav-active li {
         opacity: 1;
         transform: translateY(0);
     }
     
-    /* Animasi bertahap untuk setiap item */
-    .nav-links li:nth-child(1) { transition-delay: 0.1s; }
-    .nav-links li:nth-child(2) { transition-delay: 0.2s; }
-    .nav-links li:nth-child(3) { transition-delay: 0.3s; }
-    .nav-links li:nth-child(4) { transition-delay: 0.4s; }
+    /* [PERBARUI] Animasi bertahap (stagger) dibuat sedikit lebih lambat */
+    .nav-links.nav-active li:nth-child(1) { transition-delay: 0.2s; }
+    .nav-links.nav-active li:nth-child(2) { transition-delay: 0.3s; }
+    .nav-links.nav-active li:nth-child(3) { transition-delay: 0.4s; }
+    .nav-links.nav-active li:nth-child(4) { transition-delay: 0.5s; }
     
     /* Font lebih besar di mobile */
     .navbar .nav-links a {
@@ -85,7 +103,7 @@
         padding: 10px 0;
     }
     
-    /* Animasi burger menu menjadi X */
+    /* Animasi burger menu menjadi X (Transformasi Anda sudah benar) */
     .burger-active .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
