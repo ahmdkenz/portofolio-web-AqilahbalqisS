@@ -101,3 +101,23 @@
         padding: 60px 0;
     }
 }
+/* =================================
+   PENYESUAIAN ANIMASI (RESPONSIVE)
+   ================================= */
+
+@media (max-width: 768px) {
+
+    /* Di HP, timeline tidak lagi kiri-kanan, tapi atas-bawah.
+       Kita buat SEMUA item slide-in dari kiri */
+    
+    /* Status Default (Tersembunyi) di HP */
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        transform: translateX(-30px); /* Semua slide dari kiri */
+    }
+
+    /* Status Aktif (Terlihat) di HP */
+    .timeline-item.is-visible {
+        transform: translateX(0);
+    }
+}
