@@ -762,3 +762,21 @@
     justify-content: flex-start;
     gap: 20px; /* Jarak antar item menu */
 }
+/* =================================
+   CSS UNTUK LOGO DI NAVBAR (BARU)
+   ================================= */
+
+/* Tata letak logo dan teks di dalam .navbar .logo */
+.navbar .logo {
+    display: flex; /* Mengatur item secara horizontal */
+    align-items: center; /* Menyelaraskan vertikal di tengah */
+    gap: 10px; /* Jarak antara logo dan teks */
+}
+
+.navbar-logo {
+    width: 100px; /* Sesuaikan ukuran logo */
+    height: 100px; /* Buat tinggi dan lebar sama */
+    object-fit: contain; /* Pastikan logo tidak terdistorsi */
+    border-radius: 0; /* Pastikan logo tidak bulat seperti foto profil */
+}
+
