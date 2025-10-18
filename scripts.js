@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Tambahkan kelas 'is-visible'
                 entry.target.classList.add('is-visible');
                 
-                // (Opsional) Berhenti mengamati elemen ini setelah animasi berjalan
+                // Berhenti mengamati elemen ini setelah animasi berjalan
                 observer.unobserve(entry.target);
             }
         });
@@ -48,29 +48,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ===================================
-    // === KODE FORM KONTAK (BARU) ===
+    // === KODE FORM KONTAK (DIPERBARUI DENGAN LOGIKA BARU ANDA) ===
     // ===================================
     const contactForm = document.querySelector('.contact-form');
 
     if (contactForm) { // Pastikan form ada
         contactForm.addEventListener('submit', function(event) {
-            // Hentikan submit default untuk validasi
+            
+            // 1. Hentikan form agar tidak terkirim
             event.preventDefault();
 
-            // Validasi input form
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+            // 2. Ambil nilai input (logika baru yang lebih aman)
+            const name = (document.getElementById('name') || { value: '' }).value.trim();
+            const email = (document.getElementById('email') || { value: '' }).value.trim();
+            const message = (document.getElementById('message') || { value: '' }).value.trim();
 
-            // Validasi input
-            if (!name || !email || !message) {
-                alert('Harap isi semua kolom sebelum mengirim pesan.');
-                return;
-            }
+            // 3. Atur email penerima
+            const to = 'aqilahbalais@gmail.com'; // <-- Email Anda
             
-            // Jika validasi berhasil, kirim form secara manual
-            console.log('Form valid, submitting to FormSubmit.co');
-            contactForm.submit();
+            // 4. Siapkan Subjek dan Body
+            const subject = encodeURIComponent(`Portofolio Contact — ${name || 'Visitor'}`);
+            // Buat body dengan baris baru (%0D%0A atau \r\n)
+            const bodyPlain = [
+              `Name: ${name || '-'}`,
+              `Email: ${email || '-'}`,
+              '',
+              'Message:',
+              message || '-'
+            ].join('\r\n');
+            const body = encodeURIComponent(bodyPlain);
+
+            // 5. Buat link mailto:
+            const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+
+            // 6. Coba buka aplikasi email (Mobile/Desktop App)
+            window.location.href = mailto;
+
+            // 7. Fallback: Buka Gmail di tab baru (untuk Desktop non-app)
+            try {
+              const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+              if (!isMobile) {
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${subject}&body=${body}`;
+                // Buka di tab baru
+                window.open(gmailUrl, '_blank');
+              }
+            } catch (err) {
+              // jika error, biarkan saja (mailto sudah dijalankan)
+              console.warn('Gagal membuka Gmail web sebagai fallback:', err);
+            }
         });
     }
     
