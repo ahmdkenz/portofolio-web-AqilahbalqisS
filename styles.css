@@ -503,34 +503,37 @@
 }
 
 /* Isian/level dari skill bar */
+/* === 5. Kemampuan === */
+
+/* ... (aturan .skills-grid dan .skill-item h3 Anda) ... */
+
+/* Isian/level dari skill bar */
 .skill-bar-level {
     height: 100%;
-    background-color: var(--color-primary); /* Warna hijau tua (sesuai tema) */
+    background-color: var(--color-primary);
     border-radius: 10px;
+    width: 0; /* Mulai dari 0 */
+    transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* Animasi halus 1.2 detik */
 }
 
 /* Lebar persentase untuk skill bar */
 .w-80 {
-    width: 80%; /* Untuk level 4/5 */
+    width: 80%; /* Lebar 80% */
 }
 
 .w-60 {
-    width: 60%; /* Untuk level 3/5 */
+    width: 60%; /* Lebar 60% */
 }
 
-/* =================================
-   PENYESUAIAN RESPONSIVE (BARU)
-   ================================= */
-
-/* Di dalam media query Anda yang sudah ada */
-@media (max-width: 768px) {
-    
-    /* Aturan lama untuk .portfolio-grid bisa dihapus/diganti ini */
-    .skills-grid {
-        grid-template-columns: 1fr; /* Jadi 1 kolom di HP */
-        gap: 30px;
-    }
+/* Tambahkan kelas untuk persentase lain jika diperlukan */
+.w-100 {
+    width: 100%; /* Lebar penuh */
 }
+
+.w-40 {
+    width: 40%; /* Lebar 40% */
+}
+
 /* =================================
    CSS UNTUK SECTION PENDIDIKAN (BARU)
    ================================= */
@@ -577,4 +580,57 @@
 .education-item p {
     font-size: 0.95rem;
     margin-bottom: 0;
+}
+
+/* =================================
+   CSS UNTUK ANIMASI (BARU)
+   ================================= */
+
+/* --- Status Default Animasi (Tersembunyi) --- */
+
+/* Ini adalah style default untuk SEMUA elemen .animate-on-scroll */
+.animate-on-scroll {
+    opacity: 0;
+    /* Sedikit bergeser ke atas untuk efek 'slide-up' */
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Mencegah animasi berjalan terlalu cepat setelahnya */
+    transition-delay: 0.1s; 
+}
+
+/* Status default khusus untuk Timeline Kiri */
+.timeline-item:nth-child(odd) {
+    /* Akan slide dari kiri */
+    transform: translateX(-50px);
+}
+
+/* Status default khusus untuk Timeline Kanan */
+.timeline-item:nth-child(even) {
+    /* Akan slide dari kanan */
+    transform: translateX(50px);
+}
+
+
+/* --- Status Aktif Animasi (Terlihat) --- */
+/* (Saat JavaScript menambahkan kelas .is-visible) */
+
+/* Ini mengaktifkan animasi fade-in dan slide-up */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ini mengaktifkan animasi slide-in untuk Timeline */
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ini mengaktifkan animasi progress bar */
+#skills.is-visible .w-80 {
+    width: 80%;
+}
+
+#skills.is-visible .w-60 {
+    width: 60%;
 }
