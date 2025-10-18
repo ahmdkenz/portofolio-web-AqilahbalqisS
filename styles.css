@@ -728,3 +728,45 @@
     justify-content: flex-start;
     gap: 20px; /* Jarak antar item menu */
 }
+/* =================================
+   PENYESUAIAN FOOTER (SOSIAL MEDIA)
+   ================================= */
+
+/* Ganti aturan footer yang ada dengan ini agar padding-nya pas */
+footer {
+    background: var(--color-primary);
+    color: var(--color-bg);
+    text-align: center;
+    padding: 40px 0; /* Padding sedikit lebih besar */
+    margin-top: 60px;
+}
+
+/* Wrapper Ikon Sosial Media (BARU) */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Jarak antar ikon */
+    margin-bottom: 25px; /* Jarak ke teks copyright */
+}
+
+/* Styling Ikon (BARU) */
+.social-links a {
+    color: var(--color-bg); /* Mengambil warna background footer (putih gading) */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px); /* Efek 'float' saat hover */
+    opacity: 0.8; /* Sedikit pudar */
+}
+
+/* Ukuran Ikon SVG (BARU) */
+.social-links svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Pastikan teks copyright tidak punya margin bawah */
+footer p {
+    margin-bottom: 0;
+}
